@@ -3,6 +3,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const port = process.env.PORT || 3000;
 
 var app = express(); 
 //app.set;
@@ -96,5 +97,7 @@ app.get('/bad', (req, res) => {  res.send({    errorMessage: 'Unable to handle r
 call app.listen. The app.listen function will bind the application to a port on our machine. In this case, for our local 
 host app, we will use port 3000, a really common port for developing locally. 
 */
-app.listen(3000, () => {  console.log('Server is up on port 3000'); }); 
-
+// local only version
+// app.listen(3000, () => {  console.log('Server is up on port 3000'); }); 
+//Azure version
+app.listen(port, () => {  console.log(`Server is up on port ${port}`); }); 
